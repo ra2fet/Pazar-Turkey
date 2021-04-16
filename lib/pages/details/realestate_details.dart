@@ -327,7 +327,7 @@ class _RealEstateDetailsState extends State<RealEstateDetails> {
           height: 30,
         ),
         list.isOccupy == 1
-            ? DetailsItem(title: 'الحالة', txt: "تم البيع")
+            ? DetailsItem(title: 'الحالة', txt: list.type == 2 ||  list.type == 4?"تم التأجير": "تم البيع")
             : Container(),
         loadingFeatures == false
             ? int.parse(fprice) == 1
@@ -407,7 +407,7 @@ class _RealEstateDetailsState extends State<RealEstateDetails> {
           height: 10,
         ),
         loadingFeatures == false
-            ? fbook == "1"
+            ? fbook == "1" && list.isOccupy !=1
                 ? Padding(
                     padding: EdgeInsets.symmetric(vertical: 25),
                     child: RButton(

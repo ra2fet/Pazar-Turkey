@@ -184,6 +184,7 @@ return null;
                             desc: filteredRealstateList[i].desc,
                             img: filteredRealstateList[i].img,
                             isOccupy: filteredRealstateList[i].isOccupy,
+                            type:filteredRealstateList[i].type
                           );
                         }),
               ),
@@ -238,7 +239,10 @@ class RealEstateItem extends StatelessWidget {
       @required this.title,
       @required this.subtitle,
       @required this.desc,
-      @required this.img})
+  
+      @required this.img,
+          @required this.type,
+      })
       : super(key: key);
 
   final Size size;
@@ -249,6 +253,7 @@ class RealEstateItem extends StatelessWidget {
   final String subtitle;
   final String desc;
   final String img;
+  final int type;
 
   @override
   Widget build(BuildContext context) {
@@ -316,7 +321,7 @@ class RealEstateItem extends StatelessWidget {
                                   top: 0,
 
                                   child:  Container(
-                                    child: Image.asset("assets/images/sold.png",width: 150,height:140),
+                                    child: Image.asset(type == 2 || type==4 ?"assets/images/rented.png" : "assets/images/sold.png",width: 150,height:140),
                                   )),
                         ],
                       ),
